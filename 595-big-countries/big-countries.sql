@@ -1,3 +1,4 @@
+-- Write your PostgreSQL query statement below
 SELECT
     name, population, area
 FROM
