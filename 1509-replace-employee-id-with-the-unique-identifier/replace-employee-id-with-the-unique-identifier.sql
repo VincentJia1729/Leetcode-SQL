@@ -1,6 +1,6 @@
 -- Write your PostgreSQL query statement below
-SELECT EmployeeUNI.unique_id, Employees.name
-FROM Employees
-LEFT JOIN EmployeeUNI
-ON Employees.id = EmployeeUNI.id
+SELECT i.unique_id, e.name
+FROM Employees e
+LEFT JOIN EmployeeUNI i
+ON e.id = i.id
 
