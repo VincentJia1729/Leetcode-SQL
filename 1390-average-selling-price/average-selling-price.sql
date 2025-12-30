@@ -1,0 +1,12 @@
+-- Write your PostgreSQL query statement below
+SELECT 
+    p.product_id,
+    ROUND(COALESCE(SUM(p.price * u.units)::numeric / SUM(u.units),0),2) AS average_price
+FROM prices p
+LEFT JOIN unitssold u
+    ON p.product_id = u.product_id
+   AND (
+        u.purchase_date BETWEEN p.start_date AND p.end_date
+        OR u.purchase_date IS NULL
+       )
+GROUP BY p.product_id;
