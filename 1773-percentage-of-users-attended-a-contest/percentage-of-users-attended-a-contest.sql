@@ -2,7 +2,7 @@
 SELECT
     r.contest_id,
     ROUND(
-        100.0 * COUNT(DISTINCT r.user_id) / (SELECT COUNT(*) FROM Users),
+        100.0 * COUNT(DISTINCT r.user_id) / (SELECT COUNT(user_id) FROM Users),
         2
     ) AS percentage
 FROM Register r
